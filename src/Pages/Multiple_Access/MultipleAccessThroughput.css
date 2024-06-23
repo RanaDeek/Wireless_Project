@@ -1,0 +1,11 @@
+.custom-select {
+    width: 140%;
+    height: 40px;
+    background-color: transparent;
+    color: purple;
+    border-radius: 4px;
+}
+.result p{
+    margin-top: 10px;
+    font-weight: 400;
+}

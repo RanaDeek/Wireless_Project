@@ -1,0 +1,22 @@
+.overlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    background: linear-gradient(to right, #d9d4f2, #D2CCEE, #c1bbdf);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 100% !important;
+    height: 100% !important;
+    z-index: 999;
+}
+
+.card {
+    background-color: #dcd8ee;
+    border: 1px solid rgba(255, 255, 255, 0.5);
+    box-shadow: 0 4px 8px rgb(252, 251, 251);
+    padding: 20px;
+    border-radius: 8px;
+    width: 70%;
+    height: 87% !important;
+}

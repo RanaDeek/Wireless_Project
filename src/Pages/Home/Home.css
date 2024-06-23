@@ -1,0 +1,49 @@
+.Hm {
+  display: flex;
+  flex-direction: row;
+  gap: 100px;
+  text-align: justify;
+}
+
+.Left {
+  color: purple;
+  padding-left: 50px;
+}
+.padding-top{
+   padding-top: 60px;
+
+} 
+.Left h2 {
+  font-size: 40px;
+  font-weight: 400;
+}
+.Left h2:last-of-type{
+  color: purple;
+}
+.Left button{
+  background-color: transparent;
+  color: purple;
+  border: 1px solid purple;
+}
+.Left button:hover{
+  background-color: purple;
+  color: white;
+  border: 1px solid white;
+}
+.Right {
+  text-align: center;
+}
+.Left p {
+  font-size: 20px;
+  font-weight: 300;
+  width: 400px;
+}
+.Left,
+.Right {
+  width: calc((100%-30)/2);
+}
+
+.Right img {
+  width: 400px;
+  height: 400px;
+}

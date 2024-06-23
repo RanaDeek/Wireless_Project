@@ -1,0 +1,11 @@
+.pad2{
+    margin-top: -55px !important; /* Adjust this value as needed */
+    transition: margin-top 0.3s ease;
+}
+.size p{
+    font-size: 13px !important;
+    font-weight: 500 !important;
+}
+.pad3{
+    margin-top: -40px !important; /* Adjust this value as needed */
+}

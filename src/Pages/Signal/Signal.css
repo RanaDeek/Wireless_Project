@@ -1,0 +1,38 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+  }
+  
+.form-group {
+    width: 140%;
+}
+
+.padding {
+    padding-left: 195px;
+}
+form {
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+}
+form button{
+    width: 140%;
+}
+.padding-left {
+    padding-bottom: 200px;
+}
+.result{
+    display: flex;
+    flex-direction: row;
+    width: 200px;
+}
+.result p{
+    margin: 0;
+    padding: 0;
+    font-size: 17px !important;
+    font-weight: 500;
+}
+h2{
+    width: 200%;
+}
