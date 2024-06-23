@@ -16,6 +16,7 @@ function Transmission_Power() {
     Noise_Temp: '',
     BER: '',
     Modulation_Type: '',
+    Link_Margin: '',
   });
   const [results, setResults] = useState({
     Transmitted_Power: ""
@@ -66,8 +67,8 @@ function Transmission_Power() {
   const handleCalculate = (e) => {
     e.preventDefault();
 
-    const M = 0; // Assuming M is a constant or you have a way to calculate it
-    const Temp = 0; // Assuming Temp is a constant or you have a way to calculate it
+    const M = parseFloat(data.Link_Margin);
+    const Temp = parseFloat(data.Noise_Temp);
     const Nf = parseFloat(data.Noise_Figure_Totals);
     const Rate = parseFloat(data.DataRate);
     const LP = parseFloat(data.PathLoss);
@@ -90,8 +91,9 @@ function Transmission_Power() {
     }
     if (selectedMap) {
       const ebOverNo = findClosestEbNo(BER, selectedMap);
-      console.log(ebOverNo);
       const powerR = M - 228.6 + Temp + Nf + Rate + ebOverNo;
+      console.log(M + " " + " " + Temp + Nf + " " + Rate + " " + ebOverNo + " ");
+      console.log(powerR);
       const powerT = powerR + LP + LfMargin + Lf + Other - Gt - Gr - Ar;
       setResults({ Transmitted_Power: powerT + " dB" });
     } else {
@@ -116,7 +118,6 @@ function Transmission_Power() {
     return map[closestKey];
   };
 
-  console.log(results.Transmitted_Power);
 
   return (
     <div className='Hm'>
@@ -130,7 +131,7 @@ function Transmission_Power() {
               <input
                 type="text"
                 className="form-control"
-                placeholder="Enter Path Loss"
+                placeholder="Enter Path Loss in DB"
                 value={data.PathLoss}
                 name='PathLoss'
                 onChange={handleChange}
@@ -141,7 +142,7 @@ function Transmission_Power() {
               <input
                 type="text"
                 className="form-control"
-                placeholder="Enter Frequency"
+                placeholder="Enter Frequency in DB"
                 value={data.Frequency}
                 name='Frequency'
                 onChange={handleChange}
@@ -154,7 +155,7 @@ function Transmission_Power() {
               <input
                 type="text"
                 className="form-control"
-                placeholder="Enter Transmitter Antenna Gain"
+                placeholder="Enter At in DB"
                 value={data.Transmitter_Antenna_Gain}
                 name='Transmitter_Antenna_Gain'
                 onChange={handleChange}
@@ -165,7 +166,7 @@ function Transmission_Power() {
               <input
                 type="text"
                 className="form-control"
-                placeholder="Enter Receiver Antenna Gain"
+                placeholder="Enter Ar in DB"
                 value={data.Receiver_Antenna_Gain}
                 name='Receiver_Antenna_Gain'
                 onChange={handleChange}
@@ -178,7 +179,7 @@ function Transmission_Power() {
               <input
                 type="text"
                 className="form-control"
-                placeholder="Enter Data Rate"
+                placeholder="Enter Data Rate in DB"
                 value={data.DataRate}
                 name='DataRate'
                 onChange={handleChange}
@@ -189,7 +190,7 @@ function Transmission_Power() {
               <input
                 type="text"
                 className="form-control"
-                placeholder="Enter Antenna Feed Line Loss"
+                placeholder="Enter Feed Loss in DB"
                 value={data.Antenna_Feed_Line_Loss}
                 name='Antenna_Feed_Line_Loss'
                 onChange={handleChange}
@@ -202,7 +203,7 @@ function Transmission_Power() {
               <input
                 type="text"
                 className="form-control"
-                placeholder="Enter Other Losses"
+                placeholder="Enter Other Losses in DB"
                 value={data.Other_Losses}
                 name='Other_Losses'
                 onChange={handleChange}
@@ -213,7 +214,7 @@ function Transmission_Power() {
               <input
                 type="text"
                 className="form-control"
-                placeholder="Enter Feed Margin"
+                placeholder="Enter Feed Margin in DB"
                 value={data.Feed_Margin}
                 name='Feed_Margin'
                 onChange={handleChange}
@@ -226,7 +227,7 @@ function Transmission_Power() {
               <input
                 type="text"
                 className="form-control"
-                placeholder="Enter Receiver Amplifier Gain"
+                placeholder="Enter Amp.Gain in DB"
                 value={data.Receiver_Amplifier_Gain}
                 name='Receiver_Amplifier_Gain'
                 onChange={handleChange}
@@ -237,7 +238,7 @@ function Transmission_Power() {
               <input
                 type="text"
                 className="form-control"
-                placeholder="Enter Noise Figure Totals"
+                placeholder="Enter Noise Figure in DB"
                 value={data.Noise_Figure_Totals}
                 name='Noise_Figure_Totals'
                 onChange={handleChange}
@@ -250,7 +251,7 @@ function Transmission_Power() {
               <input
                 type="text"
                 className="form-control"
-                placeholder="Enter Noise Temp"
+                placeholder="Enter Noise Temp in DB"
                 value={data.Noise_Temp}
                 name='Noise_Temp'
                 onChange={handleChange}
@@ -259,26 +260,40 @@ function Transmission_Power() {
             <div className='BER' style={{ display: 'flex', flexDirection: 'column', marginTop: '-10px' }}>
               <label htmlFor="BER">BER</label>
               <input d="probability" className="form-control"
-                placeholder="Enter BER"
+                placeholder="Enter BER in DB"
                 value={data.BER}
                 name='BER'
                 onChange={handleChange} />
             </div>
 
           </div>
-          <div className='type' style={{ display: 'flex', flexDirection: 'column', marginTop: '-10px' }}>
-            <label htmlFor="Modulation_Type">BER</label>
-            <select id="probability" className="form-control"
-              value={data.Modulation_Type}
-              name='Modulation_Type'
-              onChange={handleChange}>
-              <option value="" selected>Selcect Modulation_Type</option>
-              <option value="BPSK/QPSK">bpskQpskMap</option>
-              <option value="8PSK">eightPskMap</option>
-              <option value="16PSK">sixteenPskMap</option>
-            </select>
+          <div className='in' style={{ display: 'flex', gap: '5px' }}>
+            <div style={{ display: 'flex', flexDirection: 'column', marginTop: '-10px' }}>
+              <label htmlFor="Link_Margin">Link Margin</label>
+              <input
+                type="text"
+                className="form-control"
+                placeholder="Enter Link Margin in DB"
+                value={data.Link_Margin}
+                name='Link_Margin'
+                onChange={handleChange}
+              />
+            </div>
+            <div className='type' style={{ display: 'flex', flexDirection: 'column', marginTop: '-10px' }}>
+              <label htmlFor="Modulation_Type">Modulation Type</label>
+              <select id="probability" className="form-control"
+                value={data.Modulation_Type}
+                name='Modulation_Type'
+                onChange={handleChange}>
+                <option value="" selected>Selcect Modulation_Type</option>
+                <option value="BPSK/QPSK">bpskQpskMap</option>
+                <option value="8PSK">eightPskMap</option>
+                <option value="16PSK">sixteenPskMap</option>
+              </select>
 
+            </div>
           </div>
+
 
           <button type="submit" className="btn btn-primary win2">Calculate</button>
         </form>

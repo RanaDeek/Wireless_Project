@@ -1,3 +1,4 @@
+
 import React, { useState } from 'react'
 import PIC from '../../assets/Internet-WiFi-Setup-Maintenance-02.png'
 import './Cellular_System.css'
@@ -433,14 +434,14 @@ function Cellular_System() {
               <div className="result size2">
                 <h3>Results</h3>
                 <ul>
-                  <p>Max distance: ${results.maximumDistance} meters ,
-                    Max cell size: ${results.formattedCellSize} sq meters ,
-                    Cells in service area: ${results.numberOfCellsInServiceArea} ,
-                    Total traffic: ${results.wholeTraffic} Erlangs ,
-                    Traffic per cell: ${results.trafficPerCell} Erlangs/cell ,
-                    Cells per cluster: ${results.Number_of_cell} ,
-                    Min channels per cell: ${results.numberOfChannels} ,
-                    Min carriers per cell: ${results.numberOfChannels} ,
+                  <p>Max distance: {results.maximumDistance} meters ,
+                    Max cell size: {results.formattedCellSize} sq meters ,
+                    Cells in service area: {results.numberOfCellsInServiceArea} ,
+                    Total traffic: {results.wholeTraffic} Erlangs ,
+                    Traffic per cell: {results.trafficPerCell} Erlangs/cell ,
+                    Cells per cluster: {results.Number_of_cell} ,
+                    Min channels per cell: {results.numberOfChannels} ,
+                    Min carriers per cell: {results.numberofCarrier}
                   </p>
                 </ul>
               </div>

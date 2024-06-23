@@ -11,8 +11,8 @@ function Home() {
       <div className='Left padding-top'>
         <h2>WIRELESS AND </h2>
         <h2>MOBILE NETWORKS</h2>
-        <p>Lorem ipsum, dolor sit amet consectetur adipisicing elit. Distinctio est, officiis quia, aliquam ad obcaecati, nihil natus reiciendis provident placeat cumque! Quae magni repellat laborum autem quis consectetur eos architecto.</p>
-        <button onClick={() => openUrl('https://people.cs.umass.edu/~arun/cs453/lectures/Chapter6.pdf')}>Read More</button>
+
+        <p>A mobile network (also wireless network) route's communications in the form of radio waves to and from users. It is composed of base stations that each cover a delimited area or "cell." When joined together these cells provide radio coverage over a wide geographic area.</p>        <button onClick={() => openUrl('https://people.cs.umass.edu/~arun/cs453/lectures/Chapter6.pdf')}>Read More</button>
       </div>
       <div className='Right'>
         <img src={PIC} alt="Wireless Penetration Test" />

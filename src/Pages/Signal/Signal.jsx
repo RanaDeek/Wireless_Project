@@ -13,7 +13,8 @@ export default function Signal() {
     samplerRate: '',
     quantizerRate: '',
     sourceEncoderRate: '',
-    channelEncoderRateBits: ''
+    channelEncoderRateBits: '',
+    InterLeaver_Rate: '',
   });
 
   const handleChange = (e) => {
@@ -31,17 +32,19 @@ export default function Signal() {
     const encoderCompressionRateValue = parseFloat(data.EncoderCompressionRate);
     const channelEncoderRateValue = parseFloat(data.ChannelEncoderRate);
 
- 
+
     const samplerRate = bandwidthValue * 2; // Nyquist rate
     const quantizerRate = Math.pow(2, quantizerBitsValue);
-    const sourceEncoderRate = samplerRate * quantizerBitsValue *encoderCompressionRateValue ;
-    const channelEncoderRateBits  = sourceEncoderRate / channelEncoderRateValue ;
+    const sourceEncoderRate = samplerRate * quantizerBitsValue * encoderCompressionRateValue;
+    const channelEncoderRateBits = sourceEncoderRate / channelEncoderRateValue;
+    const InterLeaver_Rate = channelEncoderRateBits;
 
     setResults({
       samplerRate,
       quantizerRate,
       sourceEncoderRate,
-      channelEncoderRateBits
+      channelEncoderRateBits,
+      InterLeaver_Rate
     });
   };
 
@@ -80,6 +83,8 @@ export default function Signal() {
                   <p>
                     Source Rate: {results.sourceEncoderRate} ,<br />
                     Channel Rate (Bits): {results.channelEncoderRateBits}
+                    InterLeaver Rate (Bits): {results.InterLeaver_Rate}
+
                   </p>
                 </ul>
               </div>
