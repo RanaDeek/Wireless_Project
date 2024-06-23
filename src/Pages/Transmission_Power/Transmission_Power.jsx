@@ -245,7 +245,7 @@ function Transmission_Power() {
               />
             </div>
           </div>
-          <div className='in' style={{ display: 'flex', gap: '5px' }}>
+          <div className='in' style={{ display: 'flex', gap: '10px' }}>
             <div style={{ display: 'flex', flexDirection: 'column', marginTop: '-10px' }}>
               <label htmlFor="Noise_Temp">Noise Temp</label>
               <input
@@ -267,7 +267,7 @@ function Transmission_Power() {
             </div>
 
           </div>
-          <div className='in' style={{ display: 'flex', gap: '5px' }}>
+          <div className='in' style={{ display: 'flex', gap: '10px' }}>
             <div style={{ display: 'flex', flexDirection: 'column', marginTop: '-10px' }}>
               <label htmlFor="Link_Margin">Link Margin</label>
               <input
@@ -285,7 +285,7 @@ function Transmission_Power() {
                 value={data.Modulation_Type}
                 name='Modulation_Type'
                 onChange={handleChange}>
-                <option value="" selected>Selcect Modulation_Type</option>
+                <option value="" selected>Selcect Modulation Type</option>
                 <option value="BPSK/QPSK">bpskQpskMap</option>
                 <option value="8PSK">eightPskMap</option>
                 <option value="16PSK">sixteenPskMap</option>

@@ -7,7 +7,8 @@ export default function Signal() {
     Bandwidth: '',
     QuantizerBits: '',
     EncoderCompressionRate: '',
-    ChannelEncoderRate: ''
+    ChannelEncoderRate: '',
+    InterLeaver_Bit: '',
   })
   const [results, setResults] = useState({
     samplerRate: '',
@@ -50,7 +51,7 @@ export default function Signal() {
 
   return (
     <div className='Hm '>
-      <div className={`Left padding-left ${results.samplerRate ? 'pad' : ''}`}>
+      <div className={`Left padding-left ${results.samplerRate ? 'pad2' : 'pad4'}`}>
         <h2>Signal Processing</h2>
 
         <form onSubmit={handleCalculate}>
@@ -70,8 +71,13 @@ export default function Signal() {
             <label htmlFor="exampleInputPassword1">Channel Encoder Rate</label>
             <input type="text" className="form-control" placeholder="Enter Encoder Rate" value={data.ChannelEncoderRate} name='ChannelEncoderRate' onChange={handleChange} />
           </div>
+          <div className="form-group">
+            <label htmlFor="exampleInputPassword1">InterLeaver Bit</label>
+            <input type="text" className="form-control" placeholder="Enter InterLeaver Bit" value={data.InterLeaver_Bit} name='InterLeaver_Bit' onChange={handleChange} />
+          </div>
           <button type="submit" className="btn btn-primary" >Calculate</button>
           <div>
+            
             {results.samplerRate &&
               <div className="result">
                 <h3>Results</h3>
@@ -81,8 +87,8 @@ export default function Signal() {
                     Quantizer Rate: {results.quantizerRate}
                   </p>
                   <p>
-                    Source Rate: {results.sourceEncoderRate} ,<br />
-                    Channel Rate (Bits): {results.channelEncoderRateBits}
+                    Source Rate: {results.sourceEncoderRate} ,
+                    Channel Rate (Bits): {results.channelEncoderRateBits} ,
                     InterLeaver Rate (Bits): {results.InterLeaver_Rate}
 
                   </p>
